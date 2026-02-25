@@ -28,7 +28,16 @@ function updateOverlay(year) {
         currentOverlay = null;
     }
     // Define bounds for the overlay: [southWestLat, southWestLng], [northEastLat, northEastLng]
-    const bounds = [[59.0, 18.0], [60.0, 19.0]];
+    //
+    // The landmask images represent a 1°×1° tile covering
+    // latitude 59–60 ° N and longitude 18–19 ° E.  However,
+    // inspection of the rendered overlay on the base map
+    // suggested a slight north–south misalignment (about
+    // 0.1° northward).  To compensate we shift both the
+    // south‐west and north‐east corners south by 0.1°.
+    // If further adjustment is required you can tweak the
+    // values here (e.g. 0.05° or 0.2°) and redeploy.
+    const bounds = [[58.9, 18.0], [59.9, 19.0]];
     const url = getOverlayUrl(year);
     currentOverlay = L.imageOverlay(url, bounds, { opacity: 0.6 });
     currentOverlay.addTo(map);
