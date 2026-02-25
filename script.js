@@ -40,7 +40,9 @@ function updateOverlay(year) {
     // Reset the bounds to match the original 1°×1° tile extents.
     // The landmask images cover latitude 59–60° N and longitude 18–19° E.
     // No southward shift is applied here.
-    const bounds = [[59.0, 18.0], [60.0, 19.0]];
+    // Apply a slight southward shift (0.05°) to correct residual misalignment observed on the live map.
+    // New extents: 58.95–59.95° N and 18–19° E
+    const bounds = [[58.95, 18.0], [59.95, 19.0]];
     const url = getOverlayUrl(year);
     currentOverlay = L.imageOverlay(url, bounds, { opacity: 0.6 });
     currentOverlay.addTo(map);
