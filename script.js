@@ -37,7 +37,8 @@ function updateOverlay(year) {
     // south‐west and north‐east corners south by 0.1°.
     // If further adjustment is required you can tweak the
     // values here (e.g. 0.05° or 0.2°) and redeploy.
-    const bounds = [[58.9, 18.0], [59.9, 19.0]];
+    // Shift the overlay further south by another 0.1° (total 0.2° southward)
+    const bounds = [[58.8, 18.0], [59.8, 19.0]];
     const url = getOverlayUrl(year);
     currentOverlay = L.imageOverlay(url, bounds, { opacity: 0.6 });
     currentOverlay.addTo(map);
