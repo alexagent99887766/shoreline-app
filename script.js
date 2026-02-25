@@ -42,7 +42,7 @@ function updateOverlay(year) {
     // No southward shift is applied here.
     // Apply a slight southward shift (0.05°) to correct residual misalignment observed on the live map.
     // New extents: 58.95–59.95° N and 18–19° E
-    const bounds = [[58.95, 18.0], [59.95, 19.0]];
+    const bounds = [[59.00, 18.0], [60.00, 19.0]];
     const url = getOverlayUrl(year);
     currentOverlay = L.imageOverlay(url, bounds, { opacity: 0.6 });
     currentOverlay.addTo(map);
